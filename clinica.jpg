@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonrisas Mágicas - Dental Kids & Smile</title>
+    <style>
+        :root {
+            --rosa-principal: #E879F9;
+            --rosa-texto: #D946EF;
+            --turquesa: #2DD4BF;
+            --gris-oscuro: #4B5563;
+            --blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--gris-oscuro);
+            background: linear-gradient(180deg, #FDF4FF 0%, #F0FDFA 100%);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        /* Portada con Imagen de Fondo y Filtro Oscuro */
+        header {
+            position: relative;
+            background-image: url('clinica.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 6rem 1.5rem;
+            color: var(--blanco);
+            overflow: hidden;
+        }
+
+        /* Capa translúcida para que la fuente se lea perfectamente */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(253, 244, 255, 0.85) 0%, rgba(240, 253, 250, 0.85) 100%);
+            z-index: 1;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .molar-icon {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        h1 {
+            color: var(--rosa-texto);
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .subtitulo {
+            color: var(--turquesa);
+            font-size: 1.6rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 2rem;
+        }
+
+        .eslogan {
+            font-size: 1.2rem;
+            color: #374151;
+            max-width: 500px;
+            margin: 0 auto 2.5rem auto;
+            line-height: 1.4;
+        }
+
+        .btn-agenda {
+            display: inline-block;
+            background-color: #EC4899;
+            color: var(--blanco);
+            padding: 0.9rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-agenda:active {
+            transform: scale(0.95);
+        }
+
+        .scroll-down {
+            margin-top: 2.5rem;
+            font-size: 1.8rem;
+            color: #9CA3AF;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Secciones */
+        section {
+            padding: 3rem 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--rosa-texto);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .texto-objetivo {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #4B5563;
+            line-height: 1.5;
+        }
+
+        /* Estilo de Botones y Tarjetas Redondeadas */
+        .valores-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .valor-btn {
+            background: var(--blanco);
+            border: 2px solid #CCFBF1;
+            padding: 1rem;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            color: #374151;
+            font-size: 1.05rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .servicio-card {
+            background: var(--blanco);
+            border: 2px solid #CCFBF1;
+            border-radius: 25px;
+            padding: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .servicio-card h3 {
+            color: #115E59;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .servicio-card p {
+            color: #6B7280;
+            font-size: 1rem;
+        }
+
+        /* Organigrama Estilo Móvil */
+        .miembro-card {
+            background: var(--blanco);
+            border-radius: 22px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            border: 2px solid #FCE7F3;
+        }
+
+        .miembro-card.director { border-color: #F472B6; }
+        .miembro-card.odontologia { border-color: #2DD4BF; }
+        .miembro-card.admin { border-color: #F472B6; }
+
+        .miembro-card h3 {
+            font-size: 1.2rem;
+            color: #374151;
+            margin-bottom: 0.2rem;
+        }
+
+        .miembro-card p {
+            color: #6B7280;
+            font-size: 0.95rem;
+        }
+
+        /* Footer y Contacto */
+        footer {
+            background: linear-gradient(180deg, #2DD4BF 0%, #0D9488 100%);
+            color: var(--blanco);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            margin-top: 2rem;
+        }
+
+        footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-bello {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Portada con Imagen de fondo -->
+    <header>
+        <div class="content">
+            <span class="molar-icon">🦷</span>
+            <h1>Sonrisas Mágicas</h1>
+            <div class="subtitulo">Dental Kids & Smile</div>
+            <p class="eslogan">“Generamos confianza en ti y creamos sonrisas mágicas”.</p>
+            <a href="https://wa.me/573011234567" target="_blank" class="btn-agenda">Agenda tu cita</a>
+            <div class="scroll-down">↓</div>
+        </div>
+    </header>
+
+    <!-- Objetivo -->
+    <section>
+        <h2>Nuestro objetivo</h2>
+        <p class="texto-objetivo">
+            Brindar servicios odontológicos especializados en odontología estética y odontología pediátrica, ofreciendo una atención integral, segura, personalizada y de alta calidad para niños y adultos.
+        </p>
+    </section>
+
+    <!-- Valores -->
+    <section>
+        <h2>Valores institucionales</h2>
+        <div class="valores-grid">
+            <div class="valor-btn">Respeto</div>
+            <div class="valor-btn">Empatía</div>
+            <div class="valor-btn">Responsabilidad</div>
+            <div class="valor-btn">Honestidad</div>
+            <div class="valor-btn">Calidad</div>
+            <div class="valor-btn">Compromiso</div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section>
+        <h2>Portafolio de servicios</h2>
+        
+        <div class="servicio-card">
+            <h3>Odontología estética</h3>
+            <p>Diseño de sonrisa, blanqueamiento y restauraciones.</p>
+        </div>
+
+        <div class="servicio-card">
+            <h3>Odontopediatría</h3>
+            <p>Valoración, limpieza, flúor y sellantes.</p>
+        </div>
+
+        <div class="servicio-card">
+            <h3>Valoración integral</h3>
+            <p>Plan de tratamiento personalizado.</p>
+        </div>
+
+        <div class="servicio-card">
+            <h3>Higiene y prevención</h3>
+            <p>Limpiezas profesionales y educación en hábitos saludables.</p>
+        </div>
+    </section>
+
+    <!-- Organigrama Actualizado sin María José -->
+    <section>
+        <h2>Organigrama</h2>
+        
+        <div class="miembro-card director">
+            <h3>👑 Manuela Mejía</h3>
+            <p>Dirección General</p>
+        </div>
+
+        <div class="miembro-card odontologia">
+            <h3>🦷 Dayana Bedoya</h3>
+            <p>Odontología Estética y Pediátrica</p>
+        </div>
+
+        <div class="miembro-card admin">
+            <h3>👤 Isabela Sánchez</h3>
+            <p>Área Administrativa y Atención al Cliente</p>
+        </div>
+    </section>
+
+    <!-- Footer con Nueva Dirección en Bello -->
+    <footer>
+        <h3>¡AGENDA TU CITA! ♥</h3>
+        <p>Cuidamos sonrisas, creamos confianza y transformamos vidas.</p>
+        
+        <div class="info-bello">
+            📍 <strong>Dirección:</strong> Calle 44 #49-03, Bello, Antioquia<br>
+            📌 <em>Cerca del sector Fabricato</em><br><br>
+            📞 Teléfono: (301) 123 4567<br>
+            📸 Instagram: @sonrisasmagicasdental
+        </div>
+
+        <div class="copyright">
+            Sonrisas Mágicas, sonrisas que duran toda la vida.
+        </div>
+    </footer>
+
+</body>
+</html>
